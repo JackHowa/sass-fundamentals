@@ -15,20 +15,27 @@ body {
     opacity: 0.5;
 
     // targeting specifically button__price here, can't use &__price
+    // can't use the & once I'm in a more specific scope
     .btn__price {
       background: #aaaaaa;
     }
   }
 
-  &--mode-primary {
+  // modifier will need the full path
+  // modifier will begin &.
+  // .btn.btn--mode-primary {
+  &.btn--mode-primary {
     background: rgb(204, 68, 102);
     color:rgb(255, 255, 255);
   }
 
-  &--mode-secondary {
+  // &--mode-secondary { -> .btn--mode-secondary
+  &.btn--mode-secondary {
     background-color:rgb(237, 188, 200);
   }
 
+  // elements will begin &__
+  // .btn__price 
   &__price {
     padding: 1px 3px;
     background-color:#008000;
