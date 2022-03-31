@@ -1,0 +1,20 @@
+$prefixes: "t", "b", "l", "r"; 
+$directions: "top", "bottom", "left", "right";
+$space-options: "margin", "padding";
+$space-option-first-letters: "m", "p";
+// 	.#{string.slice($space-option, 1, 1)}-#{$prefix}-#{$i * 5} { 
+
+
+@for $i from 1 through 5 {
+	@each $prefix in $prefixes {
+		@each $direction in $directions {
+			@each $space-option in $space-options {
+				@each $space-option-first-letter in $space-option-first-letters {
+					.#{$space-option-first-letter}-#{$prefix}-#{$i * 5} { 
+						#{$space-option}-#{$direction}: #{5 * $i}px;
+					}
+				}
+			}
+		}
+	}
+}
