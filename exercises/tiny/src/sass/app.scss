@@ -1,19 +1,12 @@
-$prefixes: "t", "b", "l", "r"; 
-$directions: "top", "bottom", "left", "right";
-$space-options: "margin", "padding";
-$space-option-first-letters: "m", "p";
-// 	.#{string.slice($space-option, 1, 1)}-#{$prefix}-#{$i * 5} { 
-
+$prefix-objects: ('t': 'top', 'b': 'bottom', 'l': 'left', 'r': 'right');
+$dimensions: ('m': 'margin', 'p': 'padding');
 
 @for $i from 1 through 5 {
-	@each $prefix in $prefixes {
-		@each $direction in $directions {
-			@each $space-option in $space-options {
-				@each $space-option-first-letter in $space-option-first-letters {
-					.#{$space-option-first-letter}-#{$prefix}-#{$i * 5} { 
-						#{$space-option}-#{$direction}: #{5 * $i}px;
-					}
-				}
+	$size: $i * 5;
+	@each $prefix, $direction in $prefix-objects {
+		@each $space-option-first-letter, $space-option in $dimensions {
+			.#{$space-option-first-letter}-#{$prefix}-#{$size} { 
+					#{$space-option}-#{$direction}: #{$size}px;
 			}
 		}
 	}
