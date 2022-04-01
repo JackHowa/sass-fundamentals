@@ -1,5 +1,31 @@
+// using placeholder as this class does not need to be individually used
+%button--non-standard {
+  padding: 2px 10px;
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
 body {
     h1 {
     color: #c69;
   }
 }
+
+.btn {
+  // want btn-secondary to be only available with btn
+  &.btn-secondary {
+    @extend %button--non-standard;
+    background-color: rgb(237, 188, 200);
+  }
+  // .btn.btn-secondary, .btn.btn-primary
+  // want btn-primary to be only available with btn
+  &.btn-primary {
+    @extend %button--non-standard;
+    border-radius: 2px;
+    border-style: solid;
+    background-color: rgb(204, 68, 102);
+    color:rgb(255, 255, 255);
+  }
+}
+
